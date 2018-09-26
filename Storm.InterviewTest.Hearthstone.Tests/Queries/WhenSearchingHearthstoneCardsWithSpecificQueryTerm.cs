@@ -13,9 +13,10 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
 	{
 		protected IEnumerable<ICard> _result;
         protected IEnumerable<ICard> _result2;
-		protected string query;
-        protected string query2;
-        protected string query3;
+        protected IEnumerable<ICard> _result3;
+        protected string nameQuery;
+        protected string lowerCaseTypeQuery;
+        protected string upperCaseTypeQuery;
 
         protected override IEnumerable<ICard> Cards()
 		{
@@ -26,31 +27,41 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
 					minion.Name = "my special card";
 					minion.Faction = FactionTypeOptions.Alliance;
 					minion.Rarity = RarityTypeOptions.Legendary;
-                    minion.PlayerClass = "Minion";
 				})
 			};
 		}
 
 		protected override void Context()
 		{
-			query = "special";
-            query2 = "minion";
+			nameQuery = "special";
+
+            lowerCaseTypeQuery = "minion";
+
+            upperCaseTypeQuery = "Minion";
         }
 
 		protected override void Because()
 		{
-			_result = _hearthstoneCardCache.Query(new SearchCardsQuery(query));
-            _result2 = _hearthstoneCardCache.Query(new SearchCardsQuery(query2));
+			_result = _hearthstoneCardCache.Query(new SearchCardsQuery(nameQuery));
+
+            _result2 = _hearthstoneCardCache.Query(new SearchCardsQuery(lowerCaseTypeQuery));
+
+            _result3 = _hearthstoneCardCache.Query(new SearchCardsQuery(upperCaseTypeQuery));
         }
 
 		[Test]
 		public void ShouldReturnExpectedSearchResults()
 		{
+            // leaving initial test for names containing
 			_result.Count().ShouldEqual(1);
 			_result.First().Name.ShouldEqual("my special card");
 
+            // below results tests input of type with both lower and uppercase 
             _result2.Count().ShouldEqual(3);
             _result2.First().Type.ToString().ShouldEqual("Minion");
+
+            _result3.Count().ShouldEqual(3);
+            _result3.First().Type.ToString().ShouldEqual("Minion");
         }
 		
 

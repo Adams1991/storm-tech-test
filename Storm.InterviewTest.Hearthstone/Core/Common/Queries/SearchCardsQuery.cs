@@ -17,8 +17,9 @@ namespace Storm.InterviewTest.Hearthstone.Core.Common.Queries
 		}
 
 		protected override IEnumerable<ICard> ExecuteLinq(IQueryable<ICard> queryOver)
+            // changes Type part of conditional so comparing lower case regardless of user input
 		{
-			return queryOver.Where(x => x.Name.Contains(_q) || x.Type.ToString() == _q || x.PlayerClass == _q);
+			return queryOver.Where(x => x.Name.Contains(_q) || x.Type.ToString().ToLower() == _q.ToLower() || x.PlayerClass == _q);
 		}
 	}
 }
