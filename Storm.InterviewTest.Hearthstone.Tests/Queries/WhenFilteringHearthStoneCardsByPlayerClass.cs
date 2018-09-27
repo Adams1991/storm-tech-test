@@ -46,7 +46,7 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
         {
             noFilter = "all classes";
             playerClassFilter = "Neutral";
-            searchTerm = "filter works with search term";
+            searchTerm = "filter";
         }
 
 
@@ -54,7 +54,7 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
         {
             _resultForNoFilter = _hearthstoneCardCache.Query(new FilterCardsQuery(noFilter));
             _resultForFilter = _hearthstoneCardCache.Query(new FilterCardsQuery(playerClassFilter));
-        }
+        }  
 
 
         [Test]
@@ -63,6 +63,8 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
             _resultForNoFilter.Count().ShouldEqual(6);
 
             _resultForFilter.Count().ShouldEqual(2);
+
+            _resultForFilter.Count().ShouldEqual(1);
         }
     }
 }
