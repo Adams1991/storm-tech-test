@@ -22,6 +22,8 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -122,6 +124,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Core\Common\Queries\Base\SingleCardLinqQueryObject.cs" />
+    <Compile Include="Core\Common\Queries\FilterCardsQuery.cs" />
     <Compile Include="Core\Common\Queries\FindHeroCardQuery.cs" />
     <Compile Include="Core\Common\Queries\FindPlayableHeroCardsQuery.cs" />
     <Compile Include="Core\Features\Cards\Models\HeroModel.cs" />
