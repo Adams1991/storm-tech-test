@@ -32,8 +32,17 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
 					minion.Faction = FactionTypeOptions.Alliance;
 					minion.Rarity = RarityTypeOptions.Legendary;
                     minion.PlayerClass = "Neutral";
-				})
-			};
+				}),
+
+
+                  CreateRandomMinionCardWithId("HERO", minion =>
+                {
+                    minion.Name = "A MINION HERO?";
+                    minion.Faction = FactionTypeOptions.Alliance;
+                    minion.Rarity = RarityTypeOptions.Legendary;
+                    minion.PlayerClass = "Neutral";
+                })
+            };
 		}
 
 		protected override void Context()

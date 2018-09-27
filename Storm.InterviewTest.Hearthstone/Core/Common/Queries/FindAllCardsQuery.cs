@@ -9,7 +9,7 @@ namespace Storm.InterviewTest.Hearthstone.Core.Common.Queries
 	{
 		protected override IEnumerable<ICard> ExecuteLinq(IQueryable<ICard> queryOver)
 		{
-			return queryOver;
+            return queryOver;
 		}
 	}
 }

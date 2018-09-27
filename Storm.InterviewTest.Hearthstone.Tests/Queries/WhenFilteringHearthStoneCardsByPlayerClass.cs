@@ -30,6 +30,7 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
                     minion.PlayerClass = "Neutral";
                 }),
 
+                // Creates
                   CreateRandomMinionCardWithId("10", minion =>
                 {
                     minion.Name = "filter works";
@@ -64,7 +65,6 @@ namespace Storm.InterviewTest.Hearthstone.Tests.Queries
 
             _resultForFilter.Count().ShouldEqual(2);
 
-            _resultForFilter.Count().ShouldEqual(1);
         }
     }
 }
