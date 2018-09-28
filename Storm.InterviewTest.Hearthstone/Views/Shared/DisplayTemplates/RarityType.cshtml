@@ -1,11 +1,35 @@
 ﻿@model Storm.InterviewTest.Hearthstone.Core.Features.Cards.Domain.RarityTypeOptions
 
+<!--left his as a if else statement for the moment but once I research cyclomatic complexity more may change-->
 
 @if (Model.ToString() == "Free")
     {
 	<strong style="color: silver;">
 	  <abbr title="@Model">@Model</abbr>
 	</strong>
-	}
+	} else if (Model.ToString() == "Common")
+	{
+	 <strong style="color: slategray;">
+	  <abbr title="@Model">@Model</abbr>
+	</strong>	
+	} else if (Model.ToString() == "Rare")
+	{
+	 <strong style="color: blue;">
+	  <abbr title="@Model">@Model</abbr>
+	</strong>	
+	} else if (Model.ToString() == "Epic")
+	{
+	 <strong style="color: blueviolet;">
+	  <abbr title="@Model">@Model</abbr>
+	</strong>	
+	} else if (Model.ToString() == "Legendary")
+	{
+	 <strong style="color: coral;">
+	  <abbr title="@Model">@Model</abbr>
+	</strong>	
+	} 
+
+
+
  
 
