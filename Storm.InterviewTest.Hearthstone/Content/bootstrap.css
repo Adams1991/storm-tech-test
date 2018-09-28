@@ -36,6 +36,17 @@ summary {
   display: block;
 }
 
+
+.Free {
+    border-bottom: 1px dotted #999999;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: rgb(153, 153, 153);
+    color: silver;
+}
+
+
+
 audio,
 canvas,
 video {

@@ -1,4 +1,11 @@
 ﻿@model Storm.InterviewTest.Hearthstone.Core.Features.Cards.Domain.RarityTypeOptions
 
- <input type="text" readonly="readonly" class="form-control" value="@Model" />
+
+@if (Model.ToString() == "Free")
+    {
+	<strong style="color: silver;">
+	  <abbr title="@Model">@Model</abbr>
+	</strong>
+	}
+ 
 
